@@ -1,0 +1,10 @@
+INCLUDE_DIRECTORIES(${ROOT_DIR}/include)
+
+LINK_DIRECTORIES(${ROOT_DIR}/lib)
+LINK_DIRECTORIES(${ROOT_DIR}/3rd/libevent/lib)
+
+ADD_EXECUTABLE(echo_server ${CMAKE_CURRENT_SOURCE_DIR}/echo/echo.cpp)
+TARGET_LINK_LIBRARIES(echo_server libql)
+IF (WIN32)
+    TARGET_LINK_LIBRARIES(echo_server ws2_32)
+ENDIF()
